@@ -6,7 +6,8 @@
 			'ngAnimate',
 			'ngSanitize',
 
-			'ionic'
+			'ionic',
+			'ngCordova'
 		]);
 
 })();

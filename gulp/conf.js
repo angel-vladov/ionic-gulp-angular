@@ -15,7 +15,8 @@ exports.paths = {
 	src: 'src',
 	dist: 'www',
 	tmp: '.tmp',
-	e2e: 'e2e'
+	e2e: 'e2e',
+	cordovaMock: 'src/mocks/cordova.js'
 };
 
 /**

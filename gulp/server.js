@@ -3,6 +3,7 @@
 var path = require('path');
 var gulp = require('gulp');
 var conf = require('./conf');
+var fs = require("fs");
 
 var browserSync = require('browser-sync');
 var browserSyncSpa = require('browser-sync-spa');
@@ -17,7 +18,8 @@ function browserSyncInit(baseDir, browser) {
 	var routes = null;
 	if (baseDir === conf.paths.src || (util.isArray (baseDir) && baseDir.indexOf(conf.paths.src) !== -1)) {
 		routes = {
-			'/bower_components': 'bower_components'
+			'/bower_components': 'bower_components',
+			'/cordova.js': conf.paths.cordovaMock
 		};
 	}
 
@@ -37,12 +39,12 @@ function browserSyncInit(baseDir, browser) {
 
 	var proxyPaths = [
 		function(req, res, next) {
-			if (req.url.substr(req.url.length - 'cordova.js'.length) === 'cordova.js') {
-				res.write("// mocked cordova.js response to prevent 404 errors during development");
-				res.end();
-			} else {
-				next();
-			}
+			// if (req.url === '/cordova.js') {
+			// 	res.write("// mocked cordova.js response to prevent 404 errors during development.");
+			// 	res.end();
+			// }
+
+			next();
 		}
 	];
 
