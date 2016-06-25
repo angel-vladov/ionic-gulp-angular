@@ -9,19 +9,21 @@ var $ = require('gulp-load-plugins')();
 var wiredep = require('wiredep').stream;
 var _ = require('lodash');
 
-gulp.task('inject', ['scripts', 'styles'], function () {
+gulp.task('inject', ['scripts', 'styles', 'locales'], function () {
 	var injectStyles = gulp.src([
 		path.join(conf.paths.tmp, '/serve/app/**/*.css'),
 		path.join('!' + conf.paths.tmp, '/serve/app/vendor.css')
 	], {read: false});
 
 	var injectScripts = gulp.src([
-		path.join(conf.paths.src, '/app/**/*.module.js'),
-		path.join(conf.paths.src, '/app/**/*.js'),
-		path.join('!' + conf.paths.src, '/app/**/*.spec.js'),
-		path.join('!' + conf.paths.src, '/app/**/*.mock.js'),
+		path.join(conf.paths.src, '/app/**/*.module.js'), // Modules
+		path.join(conf.paths.src, '/app/**/*.js'), // Components and controllers
+		path.join(conf.paths.tmp, '/serve/app/**/*.js'), // Translations are here
+		path.join('!' + conf.paths.src, '/app/**/*.spec.js'), // Unit tests
+		path.join('!' + conf.paths.src, '/app/**/*.mock.js') // Mockup data
 	])
-		.pipe($.angularFilesort()).on('error', conf.errorHandler('AngularFilesort'));
+		.pipe($.angularFilesort())
+		.on('error', conf.errorHandler('AngularFilesort'));
 
 	var injectOptions = {
 		ignorePath: [conf.paths.src, path.join(conf.paths.tmp, '/serve')],

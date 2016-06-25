@@ -19,14 +19,17 @@ gulp.task('partials', function () {
 			quotes: true
 		}))
 		.pipe($.angularTemplatecache('templateCacheHtml.js', {
-			module: 'starter',
+			module: 'crowdio',
 			root: 'app'
 		}))
 		.pipe(gulp.dest(conf.paths.tmp + '/partials/'));
 });
 
-gulp.task('html', ['inject', 'partials'], function () {
-	var partialsInjectFile = gulp.src(path.join(conf.paths.tmp, '/partials/templateCacheHtml.js'), {read: false});
+gulp.task('html', ['inject', 'partials', 'locales'], function () {
+	var partialsInjectFile = gulp.src([
+		path.join(conf.paths.tmp, '/partials/templateCacheHtml.js')
+	], {read: false});
+
 	var partialsInjectOptions = {
 		starttag: '<!-- inject:partials -->',
 		ignorePath: path.join(conf.paths.tmp, '/partials'),
@@ -50,7 +53,7 @@ gulp.task('html', ['inject', 'partials'], function () {
 		.pipe(jsFilter.restore)
 		.pipe(cssFilter)
 		.pipe($.sourcemaps.init())
-		.pipe($.replace('../../bower_components/ionic/fonts/', '../fonts/'))
+		.pipe($.replace('../../bower_components/ionic/release/fonts/', '../fonts/'))
 		.pipe($.minifyCss({processImport: false}))
 		.pipe($.sourcemaps.write('maps'))
 		.pipe(cssFilter.restore)
