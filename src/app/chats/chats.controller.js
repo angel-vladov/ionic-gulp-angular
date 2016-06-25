@@ -18,6 +18,7 @@
 		//});
 
 		vm.chats = Chats.all();
+		
 		vm.remove = function (chat) {
 			Chats.remove(chat);
 		};
