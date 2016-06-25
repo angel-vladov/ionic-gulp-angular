@@ -1,0 +1,16 @@
+{
+  "name": "crowdio",
+  "app_id": "",
+  "gulpDependantTasks": [
+    "build"
+  ],
+  "gulpStartupTasks": [
+    "watch:build"
+  ],
+  "watchPatterns": [
+    "www/**/*"
+  ],
+  "proxies": [
+
+  ]
+}
