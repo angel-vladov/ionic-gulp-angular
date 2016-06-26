@@ -13,8 +13,6 @@ describe('Chats', function () {
 		})
 	);
 
-	beforeEach(inject());
-
 	it ('should return an array with chats', function () {
 		expect(Chats.all()).toEqual(jasmine.any(Array));
 	});
@@ -29,11 +27,12 @@ describe('Chats', function () {
 
 	it ('removes exactly one chat entry', function () {
 		var chatsBefore = Chats.all();
+		var initialLength = chatsBefore.length;
 		var toRemove = _.sample(chatsBefore);
 
 		Chats.remove(toRemove);
 
-		expect(chatsBefore.length - 1).toEqual(Chats.all().length);
+		expect(initialLength - 1).toEqual(Chats.all().length);
 	});
 
 	it ('removes exactly one chat entry', function () {

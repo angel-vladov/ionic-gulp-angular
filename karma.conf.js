@@ -29,7 +29,11 @@ function listFiles() {
 module.exports = function (config) {
 
 	var configuration = {
-		files: listFiles(),
+		files: [
+			'./node_modules/phantomjs-polyfill/bind-polyfill.js'
+		].concat(
+			listFiles()
+		),
 
 		singleRun: true,
 
@@ -37,7 +41,7 @@ module.exports = function (config) {
 
 		ngHtml2JsPreprocessor: {
 			stripPrefix: conf.paths.src + '/',
-			moduleName: 'starter'
+			moduleName: 'crowdio'
 		},
 
 		logLevel: 'WARN',
