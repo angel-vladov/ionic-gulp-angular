@@ -6,7 +6,9 @@
 		.controller('ChatDetailCtrl', ChatDetailCtrl);
 
 	/** @ngInject */
-	function ChatDetailCtrl($scope, $stateParams, Chats) {
-		$scope.chat = Chats.get($stateParams.chatId);
+	function ChatDetailCtrl($stateParams, Chats) {
+		var vm = this;
+		
+		vm.chat = Chats.get($stateParams.chatId);
 	}
 })();
