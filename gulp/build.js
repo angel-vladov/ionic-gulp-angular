@@ -19,7 +19,7 @@ gulp.task('partials', function () {
 			quotes: true
 		}))
 		.pipe($.angularTemplatecache('templateCacheHtml.js', {
-			module: 'crowdio',
+			module: 'starter',
 			root: 'app'
 		}))
 		.pipe(gulp.dest(conf.paths.tmp + '/partials/'));
@@ -53,7 +53,7 @@ gulp.task('html', ['inject', 'partials', 'locales'], function () {
 		.pipe(jsFilter.restore)
 		.pipe(cssFilter)
 		.pipe($.sourcemaps.init())
-		.pipe($.replace('../../bower_components/ionic/release/fonts/', '../fonts/'))
+		.pipe($.replace('../../bower_components/ionic/fonts/', '../fonts/'))
 		.pipe($.minifyCss({processImport: false}))
 		.pipe($.sourcemaps.write('maps'))
 		.pipe(cssFilter.restore)

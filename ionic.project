@@ -1,5 +1,5 @@
 {
-  "name": "crowdio",
+  "name": "starter",
   "app_id": "",
   "gulpDependantTasks": [
     "build"

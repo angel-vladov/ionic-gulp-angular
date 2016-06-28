@@ -1,7 +1,7 @@
 {
   "name": "starter",
   "version": "1.1.1",
-  "description": "crowdio: An Ionic project",
+  "description": "starter: An Ionic project",
   "dependencies": {
     "browser-sync": "~2.9.11",
     "browser-sync-spa": "~1.0.3",

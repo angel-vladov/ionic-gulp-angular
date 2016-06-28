@@ -41,7 +41,7 @@ module.exports = function (config) {
 
 		ngHtml2JsPreprocessor: {
 			stripPrefix: conf.paths.src + '/',
-			moduleName: 'crowdio'
+			moduleName: 'starter'
 		},
 
 		logLevel: 'WARN',
