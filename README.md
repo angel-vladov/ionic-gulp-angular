@@ -103,5 +103,6 @@ __You don't need to load the JSON files manually__.
 ### Mocking Cordova Plugins
 
 As already mentioned, there is a mocked cordova.js - `app/src/mocks/cordova.js`.
-Mock any Cordova module you need in this file. This will ensure you can continue testing in the browser without errors.
+
+Mock any Cordova module you need in this file. This will ensure you can continue testing in the browser without errors.  
 There is one mocked Cordova plugin used by $cordovaAppVersion.
